@@ -1,0 +1,88 @@
+##encoding: utf-8
+<!DOCTYPE html>
+<html>
+<head>
+	<title>viewpart</title>
+	<script type="text/javascript" src="templates/jscript/partview/Three.js"></script>
+	<script type="text/javascript" src="templates/jscript/partview/RequestAnimationFrame.js"></script>
+	<script type="text/javascript" src="templates/jscript/partview/objstl.js"></script>
+	<link rel="stylesheet" href="templates/style/viewpart.css" type="text/css">
+	<style type="text/css">
+		body{
+		    font-family: 'Georgia', serif;
+		    color:#3E4349;
+		}
+
+		li{
+		    color: green;
+		}
+		h1{
+		    color:  red;
+		    font-size: 18px;
+		}
+		div#nav {
+		    position: absolute;
+		    top: 20px;
+		    left: 5px;
+		    width: 10em;
+		}
+
+		hr#nav {
+		    width:100px;
+		    margin-left:0;
+		}
+
+		div#flashed {
+		    margin-left: 10em;
+		    font-size: large;
+		}
+
+		#content {
+		    margin-left: 10em;
+		}
+
+	</style>
+    <script>
+	    window.onload = function ()
+	    {
+	        load();
+	        example("/kmol/${temp}/${temp}.stl");
+	    }
+    </script>
+</head>
+<body>
+
+	##側邊 導航
+	<div id="nav">
+		<p>cadp mid example</p>
+		<a href="/example?temp=example">example</a>
+	</div>
+
+	##內容
+	<div id="content">
+		<h1>this is cadp mid example</h1>
+
+		<h2>Vedio</h2>
+        <%block name="vedio">
+            this is the vedio
+        </%block>
+
+        <h2>Img</h2>
+        <%block name="img">
+        </%block>
+
+        <h2>File</h2>
+        <%block name="file">
+        </%block>
+
+        ##webgl display
+		<div class="showwebgl">
+			<h2>stl view</h2>
+			<div id="centered" class="centered">
+			</div>
+			<div id="webgl" oncontextmenu="return false;">
+			</div>
+		</div>
+	</div>
+</body>
+</html>
